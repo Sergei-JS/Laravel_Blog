@@ -48,7 +48,8 @@
                     </section>
                     <section class="comment-section">
                         <h2 class="section-title mb-5" data-aos="fade-up">Добавить комментарий</h2>
-                        <form action="/" method="post">
+                        <form action="{{ route('post.comment.store', $post->id) }}" method="post">
+                            @csrf
                             <div class="row">
                                 <div class="form-group col-12" data-aos="fade-up">
                                     <label for="comment" class="sr-only">Comment</label>
@@ -58,8 +59,8 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-12" data-aos="fade-up">
-                                    <input type="submit" value="Send Message" class="btn btn-warning">
+                                <div class="col-6" data-aos="fade-up">
+                                    <input type="submit" value="Отправить сообщение" class="btn btn-warning">
                                 </div>
                             </div>
                         </form>

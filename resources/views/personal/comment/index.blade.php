@@ -44,11 +44,12 @@
                                         <tr>
                                             <td>{{$comment->id}}</td>
                                             <td>{{$comment->message}}</td>
-{{--                                            <td><a href="{{route('personal.liked.show',$post->id)}}"><i--}}
-{{--                                                        class="far fa-eye"></i></a></td>--}}
-{{--                                            <td>--}}
                                             <td class="text-center">
-                                                <form action="{{route('personal.comment.delete',$comment->id)}} " method="post">
+                                                <a href="{{ route('personal.comment.edit',$comment->id)}} "
+
+                                                   class="text-success"><i class="fas fa-pen"></i></a></td>
+                                            <td class="text-center">
+                                                <form action="{{ route('personal.comment.delete',$comment->id)}} " method="post">
                                                     @csrf
                                                     @method('delete')
                                                     <button type="submit" class="border-0 bg-transparent">

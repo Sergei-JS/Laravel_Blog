@@ -28,8 +28,15 @@ Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
 Route::group(['namespace' => 'App\Http\Controllers\Post'], function () {
     Route::get('/post', 'IndexController')->name('post.index');
     Route::get('/post/{post}', 'ShowController')->name('post.show');
+
+    Route::group(['namespace' =>'Post\Comment'],function(){
+        Route::post('/post/{post}/comments','StoreController')->name('post.comment.store');
+    });
 });
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
 
 //1
 //Route::get('/email/verify', function () {
@@ -64,6 +71,8 @@ Route::group(array(['namespace' => 'App\Http\Controllers\Personal']), function (
     Route::group(['namespace' => 'App\Http\Controllers\Personal\Comment'], function () {
         Route::get('/comments', 'IndexController')->name('personal.comment.index');
         Route::delete('comments/{comment}', 'DeleteController')->name('personal.comment.delete');
+        Route::get('comments/{comment}', 'EditController')->name('personal.comment.edit');
+        Route::patch('comments/{comment}', 'UpdateController')->name('personal.comment.update');
     });
 
 });

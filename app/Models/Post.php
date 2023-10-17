@@ -26,5 +26,10 @@ public function category(){
 public function comments(){
     return $this->hasMany(Comment::class,'post_id','id');
 }
+//    public function comments() {
+//
+//        return $this->hasMany('App\Models\Comment');
+//
+//    }
 
 }
